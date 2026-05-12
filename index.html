@@ -13,103 +13,153 @@ body{font-family:var(--sans);background:var(--ink);color:var(--text);-webkit-fon
 h1,h2,h3{font-family:var(--serif);font-weight:400;}
 button,select,input,textarea{font-family:var(--sans);}
 *::-webkit-scrollbar{width:6px;}*::-webkit-scrollbar-thumb{background:rgba(245,241,230,0.12);border-radius:4px;}
-.nav{border-bottom:1px solid var(--divider);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--ink);z-index:100;}
-.logo{font-family:var(--serif);font-size:22px;color:var(--gold);}
-.btn{padding:8px 18px;background:var(--gold);color:#070a18;border-radius:8px;font-weight:700;font-size:13px;border:none;cursor:pointer;transition:opacity .15s;white-space:nowrap;}
+
+/* NAV */
+.nav{border-bottom:1px solid var(--divider);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--ink);z-index:100;gap:12px;}
+.logo{font-family:var(--serif);font-size:22px;color:var(--gold);flex-shrink:0;}
+.nav-mid{flex:1;max-width:340px;}
+.search-box{width:100%;padding:8px 14px 8px 36px;background:var(--surface2);border:1px solid var(--hairline);border-radius:8px;color:var(--text);font-size:13px;outline:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='rgba(245,241,230,0.4)' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:12px center;}
+.search-box:focus{border-color:var(--gold);}
+.nav-right{display:flex;gap:8px;align-items:center;flex-shrink:0;}
+.btn{padding:8px 16px;background:var(--gold);color:#070a18;border-radius:8px;font-weight:700;font-size:13px;border:none;cursor:pointer;transition:opacity .15s;white-space:nowrap;}
 .btn:hover{opacity:.85;}.btn:disabled{opacity:.4;cursor:not-allowed;}
 .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--hairline);}
 .btn-ghost:hover{color:var(--text);border-color:var(--muted);}
 .btn-danger{background:var(--bad);color:#fff;}
-.btn-sm{padding:5px 12px;font-size:12px;border-radius:6px;}
+.btn-sm{padding:5px 11px;font-size:12px;border-radius:6px;}
+
+/* FILTER TABS */
+.filter-row{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap;}
+.filter-tab{padding:5px 14px;border-radius:20px;border:1px solid var(--hairline);background:transparent;color:var(--muted);font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;text-transform:uppercase;letter-spacing:.05em;}
+.filter-tab:hover{border-color:var(--gold);color:var(--gold);}
+.filter-tab.active{background:var(--gold-soft);border-color:var(--gold);color:var(--gold);}
+
+/* VIEWS */
 .view{display:none;}.view.active{display:block;}
-.main{max-width:1200px;margin:0 auto;padding:48px 32px;}
-.page-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;}
-.page-title{font-size:40px;}.page-sub{color:var(--muted);font-size:14px;margin-top:4px;}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;}
+.main{max-width:1200px;margin:0 auto;padding:40px 24px;}
+.page-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;gap:12px;flex-wrap:wrap;}
+.page-title{font-size:38px;}.page-sub{color:var(--muted);font-size:14px;margin-top:4px;}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;}
 .card{background:var(--surface);border:1px solid var(--hairline);border-radius:16px;overflow:hidden;cursor:pointer;transition:transform .15s,border-color .15s;position:relative;}
 .card:hover{transform:translateY(-2px);border-color:var(--gold);}
-.card-cover{height:170px;background:linear-gradient(135deg,#0a1430 0%,#1e2c5e 40%,#7a5a25 100%);background-size:cover;background-position:center;}
-.card-body{padding:18px 22px;}
-.card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;}
-.card-title{font-size:17px;font-weight:600;}
-.card-dest{color:var(--gold);font-size:13px;margin-bottom:10px;}
-.card-meta{display:flex;gap:14px;color:var(--muted);font-size:12px;flex-wrap:wrap;}
+.card-cover{height:160px;background:linear-gradient(135deg,#0a1430 0%,#1e2c5e 40%,#7a5a25 100%);background-size:cover;background-position:center;}
+.card-body{padding:16px 20px;}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;gap:8px;}
+.card-title{font-size:16px;font-weight:600;}
+.card-dest{color:var(--gold);font-size:13px;margin-bottom:8px;}
+.card-meta{display:flex;gap:12px;color:var(--muted);font-size:12px;flex-wrap:wrap;}
 .badge{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;background:var(--surface2);border-radius:6px;flex-shrink:0;}
-.del-card{position:absolute;top:10px;right:10px;width:28px;height:28px;border-radius:50%;background:rgba(7,10,24,.85);border:1px solid var(--bad);color:var(--bad);font-size:13px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .15s;z-index:2;}
-.card:hover .del-card{opacity:1;}.del-card:hover{background:var(--bad);color:#fff;}
-.empty{text-align:center;padding:80px 0;grid-column:1/-1;}
-.empty p{color:var(--muted);font-size:18px;margin-bottom:24px;}
-.hero{height:290px;position:relative;background:linear-gradient(135deg,#0a1430 0%,#1e2c5e 40%,#7a5a25 100%);background-size:cover;background-position:center;}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,10,24,.95) 0%,transparent 60%);}
-.hero-content{position:absolute;bottom:28px;left:32px;right:32px;}
-.hero-title{font-size:38px;margin-bottom:6px;}
-.hero-sub{color:var(--muted);margin-bottom:10px;font-size:14px;}
-.hero-meta{display:flex;gap:20px;font-size:13px;color:var(--muted);flex-wrap:wrap;}
+.budget-bar-wrap{margin-top:10px;}
+.budget-bar-track{height:3px;background:var(--surface3);border-radius:2px;overflow:hidden;}
+.budget-bar-fill{height:100%;background:var(--gold);border-radius:2px;transition:width .4s;}
+.budget-bar-label{display:flex;justify-content:space-between;color:var(--dim);font-size:10px;margin-top:4px;}
+.card-actions{position:absolute;top:10px;right:10px;display:flex;gap:6px;opacity:0;transition:opacity .15s;}
+.card:hover .card-actions{opacity:1;}
+.icon-btn{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;font-size:13px;transition:all .15s;}
+.icon-btn-edit{background:rgba(7,10,24,.85);color:var(--gold);border:1px solid var(--hairline);}
+.icon-btn-edit:hover{background:var(--gold);color:#070a18;}
+.icon-btn-del{background:rgba(7,10,24,.85);color:var(--bad);border:1px solid var(--hairline);}
+.icon-btn-del:hover{background:var(--bad);color:#fff;}
+.empty{text-align:center;padding:60px 0;grid-column:1/-1;}
+.empty p{color:var(--muted);font-size:17px;margin-bottom:20px;}
+
+/* DETAIL */
+.hero{height:280px;position:relative;background:linear-gradient(135deg,#0a1430 0%,#1e2c5e 40%,#7a5a25 100%);background-size:cover;background-position:center;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,10,24,.95) 0%,transparent 55%);}
+.hero-content{position:absolute;bottom:24px;left:28px;right:28px;}
+.hero-title{font-size:36px;margin-bottom:5px;}
+.hero-sub{color:var(--muted);margin-bottom:8px;font-size:14px;}
+.hero-meta{display:flex;gap:16px;font-size:13px;color:var(--muted);flex-wrap:wrap;}
 .hero-meta .dest{color:var(--gold);}
-.stats-row{display:flex;gap:16px;margin-bottom:36px;flex-wrap:wrap;}
-.stat{background:var(--surface);border:1px solid var(--hairline);border-radius:12px;padding:14px 22px;flex:1 1 110px;}
+.stats-row{display:flex;gap:14px;margin-bottom:28px;flex-wrap:wrap;}
+.stat{background:var(--surface);border:1px solid var(--hairline);border-radius:12px;padding:14px 20px;flex:1 1 100px;}
 .stat-label{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;}
-.stat-value{font-size:22px;font-family:var(--serif);color:var(--gold);}
-.notes-box{background:var(--surface);border:1px solid var(--hairline);border-radius:12px;padding:18px 22px;margin-bottom:32px;}
+.stat-value{font-size:20px;font-family:var(--serif);color:var(--gold);}
+.budget-detail{background:var(--surface);border:1px solid var(--hairline);border-radius:12px;padding:16px 20px;margin-bottom:24px;}
+.budget-detail-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.budget-detail-title{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em;}
+.budget-amounts{display:flex;gap:20px;}
+.budget-amt{text-align:center;}
+.budget-amt-val{font-size:18px;font-family:var(--serif);color:var(--gold);}
+.budget-amt-label{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.06em;}
+.budget-track{height:6px;background:var(--surface3);border-radius:3px;overflow:hidden;margin-top:10px;}
+.budget-fill{height:100%;border-radius:3px;transition:width .5s;}
+.notes-box{background:var(--surface);border:1px solid var(--hairline);border-radius:12px;padding:16px 20px;margin-bottom:28px;}
 .notes-label{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;}
 .notes-text{color:var(--muted);line-height:1.6;font-size:14px;}
-.itin-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
-.itin{display:flex;flex-direction:column;gap:20px;}
+.itin-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;gap:8px;flex-wrap:wrap;}
+.itin{display:flex;flex-direction:column;gap:16px;}
 .day-wrap{background:var(--surface);border:1px solid var(--hairline);border-radius:14px;overflow:hidden;}
-.day-header{display:flex;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid var(--divider);}
-.day-num{width:36px;height:36px;border-radius:8px;background:var(--gold-soft);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;font-family:var(--serif);color:var(--gold);font-size:17px;flex-shrink:0;}
-.day-info{flex:1;}.day-info p{font-weight:600;font-size:14px;margin-bottom:2px;}.day-info span{color:var(--muted);font-size:12px;}
-.day-actions{display:flex;gap:8px;margin-left:auto;flex-shrink:0;}
-.acts{padding:12px 16px;display:flex;flex-direction:column;gap:10px;}
-.act{background:var(--surface2);border:1px solid var(--hairline);border-radius:10px;padding:12px 16px;display:flex;gap:12px;position:relative;}
-.act-icon{width:30px;height:30px;border-radius:7px;background:var(--surface3);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0;}
+.day-header{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--divider);}
+.day-num{width:34px;height:34px;border-radius:8px;background:var(--gold-soft);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;font-family:var(--serif);color:var(--gold);font-size:16px;flex-shrink:0;}
+.day-info{flex:1;min-width:0;}.day-info p{font-weight:600;font-size:14px;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.day-info span{color:var(--muted);font-size:12px;}
+.day-weather{display:flex;align-items:center;gap:5px;color:var(--muted);font-size:12px;flex-shrink:0;}
+.day-actions{display:flex;gap:6px;flex-shrink:0;}
+.acts{padding:10px 14px;display:flex;flex-direction:column;gap:8px;}
+.act{background:var(--surface2);border:1px solid var(--hairline);border-radius:10px;padding:11px 14px;display:flex;gap:11px;position:relative;transition:border-color .15s;}
+.act:hover{border-color:var(--gold-soft);}
+.act-icon{width:28px;height:28px;border-radius:7px;background:var(--surface3);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0;}
 .act-body{flex:1;min-width:0;}
 .act-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:2px;}
 .act-title{font-weight:600;font-size:13px;}
-.act-time{color:var(--gold);font-size:12px;font-family:monospace;flex-shrink:0;}
+.act-time{color:var(--gold);font-size:11px;font-family:monospace;flex-shrink:0;}
 .act-sub{color:var(--muted);font-size:12px;margin-bottom:3px;}
-.act-brief{color:var(--dim);font-size:11px;margin-bottom:6px;}
+.act-brief{color:var(--dim);font-size:11px;margin-bottom:5px;}
 .act-foot{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
 .act-loc{color:var(--muted);font-size:11px;}
 .tag{font-size:10px;padding:2px 6px;background:var(--surface3);border-radius:4px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;}
-.del-act{position:absolute;top:8px;right:8px;background:none;border:none;color:var(--dim);cursor:pointer;font-size:14px;padding:2px 5px;border-radius:4px;opacity:0;transition:opacity .15s;line-height:1;}
-.act:hover .del-act{opacity:1;}.del-act:hover{color:var(--bad);}
+.act-actions{position:absolute;top:6px;right:6px;display:flex;gap:4px;opacity:0;transition:opacity .15s;}
+.act:hover .act-actions{opacity:1;}
+.act-btn{background:none;border:none;cursor:pointer;font-size:12px;padding:3px 5px;border-radius:4px;line-height:1;color:var(--dim);}
+.act-btn:hover{color:var(--gold);}
+.act-btn.del:hover{color:var(--bad);}
 .no-acts{color:var(--dim);font-size:13px;padding:4px 0;}
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(7,10,24,.8);z-index:200;align-items:center;justify-content:center;padding:20px;}
+.no-days{padding:24px;color:var(--muted);font-size:14px;text-align:center;}
+
+/* MODAL */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(7,10,24,.82);z-index:200;align-items:center;justify-content:center;padding:16px;}
 .modal-bg.open{display:flex;}
-.modal{background:var(--surface);border:1px solid var(--hairline);border-radius:16px;width:100%;max-width:500px;max-height:90vh;overflow-y:auto;}
-.modal-hdr{padding:22px 26px 0;display:flex;align-items:center;justify-content:space-between;}
+.modal{background:var(--surface);border:1px solid var(--hairline);border-radius:16px;width:100%;max-width:500px;max-height:92vh;overflow-y:auto;}
+.modal-hdr{padding:22px 24px 0;display:flex;align-items:center;justify-content:space-between;}
 .modal-hdr h2{font-size:22px;}
-.modal-close{background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;line-height:1;padding:4px;}
+.modal-close{background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;padding:4px;}
 .modal-close:hover{color:var(--text);}
-.modal-body{padding:18px 26px 26px;}
-.fields{display:flex;flex-direction:column;gap:16px;}
+.modal-body{padding:16px 24px 24px;}
+.fields{display:flex;flex-direction:column;gap:14px;}
 .field label{display:block;color:var(--muted);font-size:11px;margin-bottom:5px;text-transform:uppercase;letter-spacing:.08em;}
-.field input,.field select,.field textarea{width:100%;padding:10px 13px;background:var(--surface2);border:1px solid var(--hairline);border-radius:9px;color:var(--text);font-size:14px;outline:none;transition:border-color .15s;}
+.field input,.field select,.field textarea{width:100%;padding:9px 12px;background:var(--surface2);border:1px solid var(--hairline);border-radius:9px;color:var(--text);font-size:14px;outline:none;transition:border-color .15s;}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);}
 .field textarea{min-height:70px;resize:vertical;}
 .field select option{background:var(--surface2);}
-.col2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.col21{display:grid;grid-template-columns:2fr 1fr;gap:14px;}
-.form-actions{display:flex;gap:10px;margin-top:4px;}
-.form-actions .btn{flex:2;padding:12px 0;font-size:14px;}
-.form-actions .btn-ghost{flex:1;padding:12px 0;font-size:14px;}
+.col2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.col21{display:grid;grid-template-columns:2fr 1fr;gap:12px;}
+.form-actions{display:flex;gap:10px;margin-top:6px;}
+.form-actions .btn{flex:2;padding:11px 0;font-size:14px;}
+.form-actions .btn-ghost{flex:1;padding:11px 0;font-size:14px;}
 .err{color:var(--bad);font-size:12px;}
 .back-btn{color:var(--muted);font-size:13px;cursor:pointer;background:none;border:none;}
 .back-btn:hover{color:var(--text);}
 .loading{display:flex;align-items:center;justify-content:center;padding:80px;color:var(--muted);}
-.no-days{padding:24px;color:var(--muted);font-size:14px;text-align:center;}
-.form-page{max-width:620px;margin:0 auto;padding:48px 32px;}
-.form-title{font-size:36px;margin-bottom:8px;}.form-sub{color:var(--muted);margin-bottom:32px;font-size:14px;}
+.form-page{max-width:600px;margin:0 auto;padding:40px 24px;}
+.form-title{font-size:34px;margin-bottom:8px;}.form-sub{color:var(--muted);margin-bottom:28px;font-size:14px;}
 @keyframes fade{from{opacity:0;transform:translateY(5px);}to{opacity:1;transform:none;}}
-.fade{animation:fade .35s cubic-bezier(.2,.7,.3,1) both;}
+.fade{animation:fade .3s cubic-bezier(.2,.7,.3,1) both;}
+.weather-opts{display:flex;gap:8px;flex-wrap:wrap;}
+.weather-opt{padding:5px 10px;border-radius:6px;border:1px solid var(--hairline);background:transparent;color:var(--muted);cursor:pointer;font-size:13px;}
+.weather-opt.sel{background:var(--gold-soft);border-color:var(--gold);color:var(--text);}
+.section-divider{height:1px;background:var(--divider);margin:4px 0;}
 </style>
 </head>
 <body>
 
 <nav class="nav">
   <span class="logo">Go Travel</span>
-  <div style="display:flex;gap:10px;align-items:center;">
+  <div class="nav-mid" id="searchWrap">
+    <input class="search-box" id="searchInput" placeholder="Search trips…" oninput="filterTrips()" >
+  </div>
+  <div class="nav-right">
     <button class="back-btn" id="backBtn" style="display:none" onclick="showDashboard()">← All Trips</button>
     <button class="btn" id="navActionBtn" onclick="showCreate()">+ New Trip</button>
   </div>
@@ -121,6 +171,14 @@ button,select,input,textarea{font-family:var(--sans);}
     <div class="page-hdr">
       <div><h1 class="page-title">My Trips</h1><p class="page-sub" id="tripCount">Loading…</p></div>
     </div>
+    <div class="filter-row" id="filterRow">
+      <button class="filter-tab active" onclick="setFilter('all',this)">All</button>
+      <button class="filter-tab" onclick="setFilter('idea',this)">Idea</button>
+      <button class="filter-tab" onclick="setFilter('draft',this)">Draft</button>
+      <button class="filter-tab" onclick="setFilter('planning',this)">Planning</button>
+      <button class="filter-tab" onclick="setFilter('confirmed',this)">Confirmed</button>
+      <button class="filter-tab" onclick="setFilter('completed',this)">Completed</button>
+    </div>
     <div id="tripGrid" class="grid"></div>
   </div>
 </div>
@@ -130,20 +188,21 @@ button,select,input,textarea{font-family:var(--sans);}
   <div id="heroArea"></div>
   <div class="main">
     <div class="stats-row" id="statsRow"></div>
+    <div id="budgetArea"></div>
     <div id="notesArea"></div>
     <div class="itin-hdr">
-      <h2 style="font-size:26px;">Itinerary</h2>
+      <h2 style="font-size:24px;">Itinerary</h2>
       <button class="btn btn-sm" onclick="openAddDay()">+ Add Day</button>
     </div>
     <div class="itin" id="itinArea"></div>
   </div>
 </div>
 
-<!-- CREATE TRIP -->
+<!-- CREATE/EDIT TRIP -->
 <div class="view" id="viewCreate">
   <div class="form-page">
-    <h1 class="form-title">Plan a new trip</h1>
-    <p class="form-sub">Fill in the basics — add itinerary days after creating.</p>
+    <h1 class="form-title" id="formTitle">Plan a new trip</h1>
+    <p class="form-sub">Fill in the basics — add itinerary after creating.</p>
     <div class="fields">
       <div class="field"><label>Trip name *</label><input id="fName" placeholder="e.g. Tokyo Winter 2026"></div>
       <div class="field"><label>Subtitle</label><input id="fSub" placeholder="e.g. 10 days of ramen &amp; temples"></div>
@@ -155,28 +214,33 @@ button,select,input,textarea{font-family:var(--sans);}
       <div class="col2">
         <div class="field"><label>Travelers</label><input type="number" id="fTravelers" value="1" min="1"></div>
         <div class="field"><label>Status</label>
-          <select id="fStatus"><option value="draft">Draft</option><option value="planning">Planning</option><option value="confirmed">Confirmed</option><option value="idea">Idea</option></select>
+          <select id="fStatus">
+            <option value="draft">Draft</option><option value="idea">Idea</option>
+            <option value="planning">Planning</option><option value="confirmed">Confirmed</option>
+            <option value="completed">Completed</option><option value="archived">Archived</option>
+          </select>
         </div>
       </div>
-      <div class="col21">
-        <div class="field"><label>Budget</label><input type="number" id="fBudget" placeholder="0"></div>
+      <div class="col2">
+        <div class="field"><label>Budget total</label><input type="number" id="fBudget" placeholder="0"></div>
         <div class="field"><label>Currency</label><input id="fCurrency" value="USD"></div>
       </div>
-      <div class="field"><label>Cover image URL</label><input id="fCover" placeholder="https://…"></div>
+      <div class="field"><label>Budget spent</label><input type="number" id="fSpent" placeholder="0"></div>
+      <div class="field"><label>Cover image URL</label><input id="fCover" placeholder="https://images.unsplash.com/…"></div>
       <div class="field"><label>Notes</label><textarea id="fNotes" placeholder="Tips, reminders, packing list…"></textarea></div>
       <p class="err" id="formErr"></p>
       <div class="form-actions">
-        <button class="btn btn-ghost" onclick="showDashboard()">Cancel</button>
-        <button class="btn" id="submitBtn" onclick="createTrip()">Create Trip</button>
+        <button class="btn btn-ghost" id="formCancelBtn" onclick="showDashboard()">Cancel</button>
+        <button class="btn" id="submitBtn" onclick="saveTrip()">Create Trip</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- MODAL: Add Day -->
+<!-- MODAL: Add/Edit Day -->
 <div class="modal-bg" id="modalDay">
   <div class="modal">
-    <div class="modal-hdr"><h2>Add Day</h2><button class="modal-close" onclick="closeModal('modalDay')">✕</button></div>
+    <div class="modal-hdr"><h2 id="modalDayTitle">Add Day</h2><button class="modal-close" onclick="closeModal('modalDay')">✕</button></div>
     <div class="modal-body">
       <div class="fields">
         <div class="col2">
@@ -184,20 +248,33 @@ button,select,input,textarea{font-family:var(--sans);}
           <div class="field"><label>Date *</label><input type="date" id="dDate"></div>
         </div>
         <div class="field"><label>Title</label><input id="dTitle" placeholder="e.g. Arrival · City Centre"></div>
+        <div class="field"><label>Weather</label>
+          <div class="weather-opts">
+            <button class="weather-opt" onclick="selWeather(this,'☀️','sun')">☀️ Sunny</button>
+            <button class="weather-opt" onclick="selWeather(this,'⛅','cloud')">⛅ Cloudy</button>
+            <button class="weather-opt" onclick="selWeather(this,'🌧️','rain')">🌧️ Rain</button>
+            <button class="weather-opt" onclick="selWeather(this,'⛈️','storm')">⛈️ Storm</button>
+            <button class="weather-opt" onclick="selWeather(this,'❄️','snow')">❄️ Snow</button>
+          </div>
+        </div>
+        <div class="col2">
+          <div class="field"><label>Temp (e.g. 28°C)</label><input id="dTemp" placeholder="28°C"></div>
+          <div></div>
+        </div>
         <p class="err" id="dayErr"></p>
         <div class="form-actions">
           <button class="btn btn-ghost" onclick="closeModal('modalDay')">Cancel</button>
-          <button class="btn" onclick="addDay()">Add Day</button>
+          <button class="btn" id="daySubmitBtn" onclick="saveDay()">Add Day</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- MODAL: Add Activity -->
+<!-- MODAL: Add/Edit Activity -->
 <div class="modal-bg" id="modalAct">
   <div class="modal">
-    <div class="modal-hdr"><h2>Add Activity</h2><button class="modal-close" onclick="closeModal('modalAct')">✕</button></div>
+    <div class="modal-hdr"><h2 id="modalActTitle">Add Activity</h2><button class="modal-close" onclick="closeModal('modalAct')">✕</button></div>
     <div class="modal-body">
       <div class="fields">
         <div class="col2">
@@ -207,23 +284,23 @@ button,select,input,textarea{font-family:var(--sans);}
         <div class="field"><label>Subtitle</label><input id="aSub" placeholder="e.g. Japanese omakase"></div>
         <div class="field"><label>Location</label><input id="aLoc" placeholder="e.g. 1 Park Ave, Level 4"></div>
         <div class="field"><label>Transport</label><input id="aTrans" placeholder="e.g. Taxi · 12 min"></div>
-        <div class="field"><label>Notes / Brief</label><textarea id="aBrief" placeholder="Tips, booking info…" style="min-height:60px"></textarea></div>
+        <div class="field"><label>Notes / Brief</label><textarea id="aBrief" style="min-height:60px" placeholder="Tips, booking ref…"></textarea></div>
         <div class="col2">
           <div class="field"><label>Icon</label>
             <select id="aIcon">
-              <option value="pin">📍 General</option><option value="plane">✈️ Transport</option>
+              <option value="pin">📍 General</option><option value="plane">✈️ Flight</option>
               <option value="bed">🛏 Stay</option><option value="food">🍽 Food</option>
               <option value="drink">🍹 Drink</option><option value="museum">🏛 Culture</option>
               <option value="metro">🚇 Metro</option><option value="camera">📷 Photo</option>
               <option value="sparkle">✨ Activity</option><option value="walk">🚶 Walk</option>
             </select>
           </div>
-          <div class="field"><label>Tags (comma sep)</label><input id="aTags" placeholder="Food, Culture"></div>
+          <div class="field"><label>Tags (comma)</label><input id="aTags" placeholder="Food, Sights"></div>
         </div>
         <p class="err" id="actErr"></p>
         <div class="form-actions">
           <button class="btn btn-ghost" onclick="closeModal('modalAct')">Cancel</button>
-          <button class="btn" onclick="addActivity()">Add Activity</button>
+          <button class="btn" id="actSubmitBtn" onclick="saveActivity()">Add Activity</button>
         </div>
       </div>
     </div>
@@ -235,105 +312,160 @@ const SUPABASE_URL='https://gcasybvvlddpcxrhoguy.supabase.co'
 const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjYXN5YnZ2bGRkcGN4cmhvZ3V5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg0MjEyMTUsImV4cCI6MjA5Mzk5NzIxNX0.I0njIoSFvO5XPZEzZPcH6khUzmvceC-8vdu6H9kA7E0'
 const sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY)
 
-const STATUS_COLOR={idea:'#7f9bb8',draft:'rgba(245,241,230,0.42)',planning:'#f0b46c',confirmed:'#7fcf9a',completed:'#d9b46a',archived:'rgba(245,241,230,0.42)'}
+const STATUS_COLOR={idea:'#7f9bb8',draft:'rgba(245,241,230,0.42)',planning:'#f0b46c',confirmed:'#7fcf9a',completed:'#d9b46a',archived:'rgba(245,241,230,0.3)'}
 const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 const DAYS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
 const ICONS={plane:'M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5L21 16Z',bed:'M3 18v-7a2 2 0 0 1 2-2h7v9M21 18v-4a2 2 0 0 0-2-2H12M3 18h18M7 9V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2',food:'M7 3v8m0 0a2 2 0 1 0 4 0V3m6 0v18M14 3c1.5 0 3 1 3 3v6h-3V3Z',museum:'M4 21h16M5 21V10m14 11V10M3 10l9-6 9 6M8 21v-7m4 7v-7m4 7v-7',drink:'M5 4h14l-2 8a5 5 0 0 1-10 0L5 4Zm7 13v4m-4 0h8',metro:'M6 3h12a2 2 0 0 1 2 2v11a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V5a2 2 0 0 1 2-2Zm0 6h12M8 16h.01M16 16h.01M9 22l3-3 3 3',sparkle:'M12 3l2.7 5.5 6 .9-4.4 4.2 1 6L12 16.8 6.7 19.6l1-6L3.3 9.4l6-.9L12 3Z',camera:'M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Zm8 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z',walk:'M13 4a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm-2 3-3 4 2 3v6m1-9 3 2 4-1m-7-1 1 4',pin:'M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12Zm0-9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z'}
 
-function svgIcon(name){const d=ICONS[name]||ICONS.pin;return`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${d}"/></svg>`}
+function svg(name){const d=ICONS[name]||ICONS.pin;return`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${d}"/></svg>`}
+function fmt(s,{weekday,year}={}){if(!s)return'';const[y,m,d]=s.split('-').map(Number);const dt=new Date(y,m-1,d);const dd=String(d).padStart(2,'0');if(weekday)return`${DAYS[dt.getDay()]} · ${dd}/${MONTHS[m-1]}/${y}`;if(!year)return`${dd}/${MONTHS[m-1]}`;return`${dd}/${MONTHS[m-1]}/${y}`}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 
-function fmt(s,{weekday,year}={}){if(!s)return '';const[y,m,d]=s.split('-').map(Number);const dt=new Date(y,m-1,d);const dd=String(d).padStart(2,'0');const mmm=MONTHS[m-1];if(weekday)return`${DAYS[dt.getDay()]} · ${dd}/${mmm}/${y}`;if(!year)return`${dd}/${mmm}`;return`${dd}/${mmm}/${y}`}
+// ── STATE ───────────────────────────────────────────────
+let allTrips=[], currentFilter='all', currentTripId=null, currentDayId=null
+let editingTripId=null, editingDayId=null, editingActId=null
+let selectedWeatherIcon='', selectedWeatherKey=''
 
-let currentTripId=null,currentDayId=null
-
+// ── NAV ─────────────────────────────────────────────────
 function show(id){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(id).classList.add('active')}
-
 function showDashboard(){
-  show('viewDashboard')
+  show('viewDashboard');currentTripId=null;editingTripId=null
   document.getElementById('backBtn').style.display='none'
+  document.getElementById('searchWrap').style.display=''
   const btn=document.getElementById('navActionBtn')
-  btn.textContent='+ New Trip';btn.className='btn';btn.onclick=showCreate
-  currentTripId=null;loadTrips()
+  btn.textContent='+ New Trip';btn.className='btn';btn.onclick=showCreate;btn.style.display=''
+  loadTrips()
 }
-
-function showCreate(){
+function showCreate(tripData){
+  editingTripId=tripData?tripData.id:null
   show('viewCreate')
   document.getElementById('backBtn').style.display=''
+  document.getElementById('searchWrap').style.display='none'
   document.getElementById('navActionBtn').style.display='none'
   document.getElementById('formErr').textContent=''
+  document.getElementById('formTitle').textContent=editingTripId?'Edit Trip':'Plan a new trip'
+  document.getElementById('submitBtn').textContent=editingTripId?'Save Changes':'Create Trip'
+  // Populate fields
+  document.getElementById('fName').value=tripData?.name||''
+  document.getElementById('fSub').value=tripData?.subtitle||''
+  document.getElementById('fDest').value=tripData?.destination||''
+  document.getElementById('fStart').value=tripData?.start_date||''
+  document.getElementById('fEnd').value=tripData?.end_date||''
+  document.getElementById('fTravelers').value=tripData?.travelers||1
+  document.getElementById('fStatus').value=tripData?.status||'draft'
+  document.getElementById('fBudget').value=tripData?.budget_total||''
+  document.getElementById('fSpent').value=tripData?.budget_spent||''
+  document.getElementById('fCurrency').value=tripData?.budget_currency||'USD'
+  document.getElementById('fCover').value=tripData?.cover_url||''
+  document.getElementById('fNotes').value=tripData?.notes||''
 }
-
 function showDetail(id){
   currentTripId=id;show('viewDetail')
   document.getElementById('backBtn').style.display=''
+  document.getElementById('searchWrap').style.display='none'
   const btn=document.getElementById('navActionBtn')
-  btn.style.display='';btn.textContent='🗑 Delete Trip'
-  btn.className='btn btn-danger btn-sm';btn.onclick=()=>deleteTrip(id)
+  btn.style.display='';btn.textContent='✏️ Edit Trip'
+  btn.className='btn btn-sm btn-ghost';btn.onclick=()=>editTrip(id)
   loadTrip(id)
 }
 
-function openModal(id){document.getElementById(id).classList.add('open')}
-function closeModal(id){document.getElementById(id).classList.remove('open')}
-document.querySelectorAll('.modal-bg').forEach(bg=>bg.addEventListener('click',e=>{if(e.target===bg)bg.classList.remove('open')}))
-
-function openAddDay(){
-  document.getElementById('dayErr').textContent=''
-  document.getElementById('dTitle').value=''
-  document.getElementById('dDate').value=''
-  const n=document.querySelectorAll('.day-wrap').length
-  document.getElementById('dIndex').value=n+1
-  openModal('modalDay')
+// ── FILTER & SEARCH ─────────────────────────────────────
+function setFilter(f,el){
+  currentFilter=f
+  document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'))
+  el.classList.add('active')
+  renderTrips()
 }
-
-function openAddActivity(dayId){
-  currentDayId=dayId
-  document.getElementById('actErr').textContent=''
-  ;['aTitle','aTime','aSub','aLoc','aTrans','aBrief','aTags'].forEach(id=>document.getElementById(id).value='')
-  document.getElementById('aIcon').value='pin'
-  openModal('modalAct')
-}
-
-// ── DASHBOARD ──────────────────────────────────
-async function loadTrips(){
-  const grid=document.getElementById('tripGrid'),count=document.getElementById('tripCount')
-  grid.innerHTML='<div class="loading">Loading trips…</div>'
-  const{data:trips,error}=await sb.from('trips').select('*').order('created_at',{ascending:false})
-  if(error){grid.innerHTML=`<p style="color:var(--bad);padding:20px">${error.message}</p>`;return}
-  count.textContent=`${trips.length} trip${trips.length!==1?'s':''} planned`
-  if(!trips.length){
-    grid.innerHTML=`<div class="empty"><p>No trips yet — where will you go?</p><button class="btn" onclick="showCreate()">Plan your first trip</button></div>`
-    return
-  }
-  grid.innerHTML=trips.map(t=>`
-    <div class="card fade" onclick="showDetail('${t.id}')">
-      <div class="del-card" onclick="event.stopPropagation();deleteTrip('${t.id}')" title="Delete trip">✕</div>
-      <div class="card-cover" style="${t.cover_url?`background-image:url(${t.cover_url})`:''}"></div>
+function filterTrips(){renderTrips()}
+function renderTrips(){
+  const q=document.getElementById('searchInput').value.toLowerCase().trim()
+  const grid=document.getElementById('tripGrid')
+  let trips=allTrips
+  if(currentFilter!=='all')trips=trips.filter(t=>t.status===currentFilter)
+  if(q)trips=trips.filter(t=>(t.name+t.destination+t.subtitle).toLowerCase().includes(q))
+  document.getElementById('tripCount').textContent=`${trips.length} trip${trips.length!==1?'s':''} planned`
+  if(!trips.length){grid.innerHTML=`<div class="empty"><p>${q||currentFilter!=='all'?'No trips match your filter.':'No trips yet — where will you go?'}</p>${!q&&currentFilter==='all'?`<button class="btn" onclick="showCreate()">Plan your first trip</button>`:''}</div>`;return}
+  grid.innerHTML=trips.map(t=>{
+    const pct=t.budget_total&&t.budget_spent?Math.min(100,Math.round(t.budget_spent/t.budget_total*100)):0
+    const barColor=pct>90?'var(--bad)':pct>70?'var(--warn)':'var(--good)'
+    return`<div class="card fade" onclick="showDetail('${t.id}')">
+      <div class="card-actions">
+        <button class="icon-btn icon-btn-edit" onclick="event.stopPropagation();editTrip('${t.id}')" title="Edit">✏️</button>
+        <button class="icon-btn icon-btn-del" onclick="event.stopPropagation();deleteTrip('${t.id}')" title="Delete">✕</button>
+      </div>
+      <div class="card-cover" style="${t.cover_url?`background-image:url(${esc(t.cover_url)})`:''}"></div>
       <div class="card-body">
-        <div class="card-top"><div class="card-title">${t.name}</div><span class="badge" style="color:${STATUS_COLOR[t.status]||'var(--muted)'}">${t.status}</span></div>
-        <div class="card-dest">📍 ${t.destination}</div>
+        <div class="card-top"><div class="card-title">${esc(t.name)}</div><span class="badge" style="color:${STATUS_COLOR[t.status]||'var(--muted)'}">${t.status}</span></div>
+        <div class="card-dest">📍 ${esc(t.destination)}</div>
         <div class="card-meta">
           <span>📅 ${fmt(t.start_date)} – ${fmt(t.end_date,{year:true})}</span>
           <span>👥 ${t.travelers}</span>
           ${t.budget_total?`<span>💰 ${t.budget_currency} ${Number(t.budget_total).toLocaleString()}</span>`:''}
         </div>
+        ${t.budget_total?`<div class="budget-bar-wrap"><div class="budget-bar-track"><div class="budget-bar-fill" style="width:${pct}%;background:${barColor}"></div></div><div class="budget-bar-label"><span>Spent ${t.budget_currency} ${Number(t.budget_spent||0).toLocaleString()}</span><span>${pct}%</span></div></div>`:''}
       </div>
-    </div>`).join('')
+    </div>`}).join('')
 }
 
-// ── DELETE TRIP ─────────────────────────────────
+// ── LOAD TRIPS ──────────────────────────────────────────
+async function loadTrips(){
+  document.getElementById('tripGrid').innerHTML='<div class="loading">Loading trips…</div>'
+  const{data,error}=await sb.from('trips').select('*').order('created_at',{ascending:false})
+  if(error){document.getElementById('tripGrid').innerHTML=`<p style="color:var(--bad);padding:20px">${error.message}</p>`;return}
+  allTrips=data||[]
+  renderTrips()
+}
+
+// ── SAVE TRIP (create + edit) ───────────────────────────
+async function saveTrip(){
+  const btn=document.getElementById('submitBtn'),err=document.getElementById('formErr')
+  const name=document.getElementById('fName').value.trim()
+  const dest=document.getElementById('fDest').value.trim()
+  const start=document.getElementById('fStart').value,end=document.getElementById('fEnd').value
+  err.textContent=''
+  if(!name){err.textContent='Trip name is required.';return}
+  if(!dest){err.textContent='Destination is required.';return}
+  if(!start||!end){err.textContent='Start and end dates are required.';return}
+  if(new Date(end)<new Date(start)){err.textContent='End date must be after start date.';return}
+  btn.disabled=true;btn.textContent=editingTripId?'Saving…':'Creating…'
+  const payload={
+    name,destination:dest,subtitle:document.getElementById('fSub').value.trim()||null,
+    start_date:start,end_date:end,status:document.getElementById('fStatus').value,
+    budget_total:parseFloat(document.getElementById('fBudget').value)||null,
+    budget_spent:parseFloat(document.getElementById('fSpent').value)||null,
+    budget_currency:document.getElementById('fCurrency').value||'USD',
+    travelers:parseInt(document.getElementById('fTravelers').value)||1,
+    notes:document.getElementById('fNotes').value.trim()||null,
+    cover_url:document.getElementById('fCover').value.trim()||null,
+  }
+  let data,error
+  if(editingTripId){
+    ({data,error}=await sb.from('trips').update(payload).eq('id',editingTripId).select().single())
+  } else {
+    ({data,error}=await sb.from('trips').insert(payload).select().single())
+  }
+  btn.disabled=false;btn.textContent=editingTripId?'Save Changes':'Create Trip'
+  if(error){err.textContent=error.message;return}
+  showDetail(data.id)
+}
+
+async function editTrip(id){
+  const{data}=await sb.from('trips').select('*').eq('id',id).single()
+  showCreate(data)
+}
+
+// ── DELETE TRIP ─────────────────────────────────────────
 async function deleteTrip(id){
-  if(!confirm('Delete this trip and all its itinerary? This cannot be undone.'))return
+  if(!confirm('Delete this trip and all its itinerary? Cannot be undone.'))return
   const{error}=await sb.from('trips').delete().eq('id',id)
   if(error){alert('Error: '+error.message);return}
-  showDashboard()
+  if(currentTripId===id)showDashboard(); else{allTrips=allTrips.filter(t=>t.id!==id);renderTrips()}
 }
 
-// ── TRIP DETAIL ─────────────────────────────────
+// ── TRIP DETAIL ─────────────────────────────────────────
 async function loadTrip(id){
   document.getElementById('heroArea').innerHTML='<div class="loading">Loading…</div>'
-  document.getElementById('itinArea').innerHTML=''
-  document.getElementById('statsRow').innerHTML=''
-  document.getElementById('notesArea').innerHTML=''
+  ;['itinArea','statsRow','budgetArea','notesArea'].forEach(i=>document.getElementById(i).innerHTML='')
   const[{data:trip},{data:days}]=await Promise.all([
     sb.from('trips').select('*').eq('id',id).single(),
     sb.from('itinerary_days').select('*, activities(*)').eq('trip_id',id).order('day_index')
@@ -342,96 +474,192 @@ async function loadTrip(id){
   const dayCount=Math.ceil((new Date(trip.end_date)-new Date(trip.start_date))/86400000)+1
   const actCount=(days||[]).reduce((s,d)=>s+(d.activities?.length||0),0)
   document.getElementById('heroArea').innerHTML=`
-    <div class="hero" style="${trip.cover_url?`background-image:url(${trip.cover_url})`:''}">
+    <div class="hero" style="${trip.cover_url?`background-image:url(${esc(trip.cover_url)})`:''}">
       <div class="hero-overlay"></div>
       <div class="hero-content fade">
-        <h1 class="hero-title">${trip.name}</h1>
-        ${trip.subtitle?`<p class="hero-sub">${trip.subtitle}</p>`:''}
+        <h1 class="hero-title">${esc(trip.name)}</h1>
+        ${trip.subtitle?`<p class="hero-sub">${esc(trip.subtitle)}</p>`:''}
         <div class="hero-meta">
-          <span class="dest">📍 ${trip.destination}</span>
+          <span class="dest">📍 ${esc(trip.destination)}</span>
           <span>📅 ${fmt(trip.start_date)} – ${fmt(trip.end_date,{year:true})}</span>
           <span>👥 ${trip.travelers} traveler${trip.travelers!==1?'s':''}</span>
-          ${trip.budget_total?`<span>💰 ${trip.budget_currency} ${Number(trip.budget_total).toLocaleString()}</span>`:''}
         </div>
       </div>
     </div>`
   document.getElementById('statsRow').innerHTML=[
     {label:'Days',value:dayCount},{label:'Activities',value:actCount},
+    {label:'Travelers',value:trip.travelers},
     {label:'Status',value:trip.status.charAt(0).toUpperCase()+trip.status.slice(1)},
   ].map(s=>`<div class="stat fade"><div class="stat-label">${s.label}</div><div class="stat-value">${s.value}</div></div>`).join('')
-  if(trip.notes)document.getElementById('notesArea').innerHTML=`<div class="notes-box fade"><div class="notes-label">Notes</div><div class="notes-text">${trip.notes}</div></div>`
+  if(trip.budget_total){
+    const spent=trip.budget_spent||0
+    const pct=Math.min(100,Math.round(spent/trip.budget_total*100))
+    const barColor=pct>90?'var(--bad)':pct>70?'var(--warn)':'var(--good)'
+    const remaining=trip.budget_total-spent
+    document.getElementById('budgetArea').innerHTML=`
+      <div class="budget-detail fade">
+        <div class="budget-detail-hdr"><span class="budget-detail-title">Budget · ${trip.budget_currency}</span><span style="color:var(--muted);font-size:12px">${pct}% used</span></div>
+        <div class="budget-amounts">
+          <div class="budget-amt"><div class="budget-amt-val">${Number(trip.budget_total).toLocaleString()}</div><div class="budget-amt-label">Total</div></div>
+          <div class="budget-amt"><div class="budget-amt-val" style="color:var(--warn)">${Number(spent).toLocaleString()}</div><div class="budget-amt-label">Spent</div></div>
+          <div class="budget-amt"><div class="budget-amt-val" style="color:${remaining<0?'var(--bad)':'var(--good)'}">${Number(remaining).toLocaleString()}</div><div class="budget-amt-label">Remaining</div></div>
+        </div>
+        <div class="budget-track"><div class="budget-fill" style="width:${pct}%;background:${barColor}"></div></div>
+      </div>`
+  }
+  if(trip.notes)document.getElementById('notesArea').innerHTML=`<div class="notes-box fade"><div class="notes-label">Notes</div><div class="notes-text">${esc(trip.notes)}</div></div>`
   renderItinerary(days||[])
 }
 
 function renderItinerary(days){
   const itin=document.getElementById('itinArea')
-  if(!days.length){itin.innerHTML='<div class="no-days">No days yet — click <strong>+ Add Day</strong> to build your itinerary.</div>';return}
+  if(!days.length){itin.innerHTML='<div class="no-days">No days yet — click <strong>+ Add Day</strong> to start.</div>';return}
   itin.innerHTML=days.map(day=>{
     const acts=(day.activities||[]).sort((a,b)=>a.position-b.position)
+    const weatherStr=day.weather?`<div class="day-weather">${day.weather.icon} ${day.weather.t}</div>`:''
     return`<div class="day-wrap fade">
       <div class="day-header">
         <div class="day-num">${day.day_index}</div>
-        <div class="day-info"><p>${day.title||`Day ${day.day_index}`}</p><span>${fmt(day.date,{weekday:true})}${day.weather?` · ${day.weather.t}`:''}</span></div>
+        <div class="day-info"><p>${esc(day.title||`Day ${day.day_index}`)}</p><span>${fmt(day.date,{weekday:true})}</span></div>
+        ${weatherStr}
         <div class="day-actions">
+          <button class="btn btn-sm btn-ghost" onclick="openEditDay('${day.id}','${esc(day.title||'')}','${day.date}','${day.day_index}','${esc(JSON.stringify(day.weather||{}))}')">✏️</button>
           <button class="btn btn-sm" onclick="openAddActivity('${day.id}')">+ Activity</button>
-          <button class="btn btn-sm btn-danger" onclick="deleteDay('${day.id}')">Delete</button>
+          <button class="btn btn-sm btn-danger" onclick="deleteDay('${day.id}')">🗑</button>
         </div>
       </div>
       <div class="acts">
-        ${acts.map(act=>`
-          <div class="act">
-            <div class="act-icon">${svgIcon(act.icon)}</div>
+        ${acts.map((act,i)=>`
+          <div class="act" draggable="true" data-act-id="${act.id}" data-day-id="${day.id}" data-pos="${i}" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="dropAct(event,'${day.id}')">
+            <div class="act-icon">${svg(act.icon)}</div>
             <div class="act-body">
-              <div class="act-top"><span class="act-title">${act.title}</span>${act.time?`<span class="act-time">${act.time}`:''}</span></div>
-              ${act.subtitle?`<div class="act-sub">${act.subtitle}</div>`:''}
-              ${act.brief?`<div class="act-brief">${act.brief}</div>`:''}
+              <div class="act-top"><span class="act-title">${esc(act.title)}</span>${act.time?`<span class="act-time">${esc(act.time)}</span>`:''}</div>
+              ${act.subtitle?`<div class="act-sub">${esc(act.subtitle)}</div>`:''}
+              ${act.brief?`<div class="act-brief">${esc(act.brief)}</div>`:''}
               <div class="act-foot">
-                ${act.location?`<span class="act-loc">📍 ${act.location}</span>`:''}
-                ${act.transport?`<span class="act-loc">🚇 ${act.transport}</span>`:''}
-                ${(act.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('')}
+                ${act.location?`<span class="act-loc">📍 ${esc(act.location)}</span>`:''}
+                ${act.transport?`<span class="act-loc">🚇 ${esc(act.transport)}</span>`:''}
+                ${(act.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}
               </div>
             </div>
-            <button class="del-act" onclick="deleteActivity('${act.id}')" title="Delete">✕</button>
+            <div class="act-actions">
+              <button class="act-btn" onclick="openEditActivity('${act.id}','${day.id}')" title="Edit">✏️</button>
+              <button class="act-btn del" onclick="deleteActivity('${act.id}')" title="Delete">✕</button>
+            </div>
           </div>`).join('')}
-        ${!acts.length?'<p class="no-acts">No activities yet — click + Activity to add one.</p>':''}
+        ${!acts.length?'<p class="no-acts">No activities yet.</p>':''}
       </div>
     </div>`
   }).join('')
 }
 
-// ── ADD DAY ─────────────────────────────────────
-async function addDay(){
+// ── DRAG & DROP (reorder activities) ───────────────────
+let dragId=null
+function dragStart(e){dragId=e.currentTarget.dataset.actId;e.dataTransfer.effectAllowed='move';}
+function dragOver(e){e.preventDefault();e.dataTransfer.dropEffect='move';}
+async function dropAct(e,dayId){
+  e.preventDefault()
+  const targetEl=e.target.closest('.act')
+  if(!targetEl||targetEl.dataset.actId===dragId)return
+  const allActs=[...document.querySelectorAll(`.act[data-day-id="${dayId}"]`)]
+  const ids=allActs.map(a=>a.dataset.actId)
+  const fromIdx=ids.indexOf(dragId),toIdx=ids.indexOf(targetEl.dataset.actId)
+  if(fromIdx<0||toIdx<0)return
+  ids.splice(fromIdx,1);ids.splice(toIdx,0,dragId)
+  await Promise.all(ids.map((id,pos)=>sb.from('activities').update({position:pos}).eq('id',id)))
+  loadTrip(currentTripId)
+}
+
+// ── MODALS ──────────────────────────────────────────────
+function openModal(id){document.getElementById(id).classList.add('open')}
+function closeModal(id){document.getElementById(id).classList.remove('open')}
+document.querySelectorAll('.modal-bg').forEach(bg=>bg.addEventListener('click',e=>{if(e.target===bg)bg.classList.remove('open')}))
+
+// ── DAY MODAL ───────────────────────────────────────────
+function selWeather(el,icon,key){
+  document.querySelectorAll('.weather-opt').forEach(b=>b.classList.remove('sel'))
+  el.classList.add('sel');selectedWeatherIcon=icon;selectedWeatherKey=key
+}
+function openAddDay(){
+  editingDayId=null;selectedWeatherIcon='';selectedWeatherKey=''
+  document.getElementById('dayErr').textContent=''
+  document.getElementById('modalDayTitle').textContent='Add Day'
+  document.getElementById('daySubmitBtn').textContent='Add Day'
+  document.getElementById('dTitle').value=''
+  document.getElementById('dDate').value=''
+  document.getElementById('dTemp').value=''
+  document.querySelectorAll('.weather-opt').forEach(b=>b.classList.remove('sel'))
+  const n=document.querySelectorAll('.day-wrap').length
+  document.getElementById('dIndex').value=n+1
+  openModal('modalDay')
+}
+function openEditDay(id,title,date,index,weatherJson){
+  editingDayId=id
+  document.getElementById('dayErr').textContent=''
+  document.getElementById('modalDayTitle').textContent='Edit Day'
+  document.getElementById('daySubmitBtn').textContent='Save Day'
+  document.getElementById('dTitle').value=title
+  document.getElementById('dDate').value=date
+  document.getElementById('dIndex').value=index
+  const w=JSON.parse(weatherJson||'{}')
+  selectedWeatherIcon=w.icon||'';selectedWeatherKey=w.key||''
+  document.getElementById('dTemp').value=w.t||''
+  document.querySelectorAll('.weather-opt').forEach(b=>b.classList.remove('sel'))
+  openModal('modalDay')
+}
+async function saveDay(){
   const err=document.getElementById('dayErr')
   const dayIndex=parseInt(document.getElementById('dIndex').value)
   const date=document.getElementById('dDate').value
   const title=document.getElementById('dTitle').value.trim()
+  const temp=document.getElementById('dTemp').value.trim()
   err.textContent=''
   if(!date){err.textContent='Date is required.';return}
   if(!dayIndex||dayIndex<1){err.textContent='Day number must be at least 1.';return}
-  const{error}=await sb.from('itinerary_days').insert({trip_id:currentTripId,day_index:dayIndex,date,title:title||null})
+  const weather=selectedWeatherIcon?{icon:selectedWeatherIcon,key:selectedWeatherKey,t:temp||''}:null
+  const payload={trip_id:currentTripId,day_index:dayIndex,date,title:title||null,weather}
+  const{error}=editingDayId
+    ?await sb.from('itinerary_days').update(payload).eq('id',editingDayId)
+    :await sb.from('itinerary_days').insert(payload)
   if(error){err.textContent=error.message;return}
-  closeModal('modalDay')
-  loadTrip(currentTripId)
+  closeModal('modalDay');loadTrip(currentTripId)
 }
 
-// ── DELETE DAY ───────────────────────────────────
-async function deleteDay(dayId){
-  if(!confirm('Delete this day and all its activities?'))return
-  const{error}=await sb.from('itinerary_days').delete().eq('id',dayId)
-  if(error){alert('Error: '+error.message);return}
-  loadTrip(currentTripId)
+// ── ACTIVITY MODAL ──────────────────────────────────────
+function openAddActivity(dayId){
+  currentDayId=dayId;editingActId=null
+  document.getElementById('actErr').textContent=''
+  document.getElementById('modalActTitle').textContent='Add Activity'
+  document.getElementById('actSubmitBtn').textContent='Add Activity'
+  ;['aTitle','aTime','aSub','aLoc','aTrans','aBrief','aTags'].forEach(id=>document.getElementById(id).value='')
+  document.getElementById('aIcon').value='pin'
+  openModal('modalAct')
 }
-
-// ── ADD ACTIVITY ─────────────────────────────────
-async function addActivity(){
+async function openEditActivity(actId,dayId){
+  currentDayId=dayId;editingActId=actId
+  document.getElementById('actErr').textContent=''
+  document.getElementById('modalActTitle').textContent='Edit Activity'
+  document.getElementById('actSubmitBtn').textContent='Save Activity'
+  const{data:act}=await sb.from('activities').select('*').eq('id',actId).single()
+  if(!act)return
+  document.getElementById('aTitle').value=act.title||''
+  document.getElementById('aTime').value=act.time||''
+  document.getElementById('aSub').value=act.subtitle||''
+  document.getElementById('aLoc').value=act.location||''
+  document.getElementById('aTrans').value=act.transport||''
+  document.getElementById('aBrief').value=act.brief||''
+  document.getElementById('aIcon').value=act.icon||'pin'
+  document.getElementById('aTags').value=(act.tags||[]).join(', ')
+  openModal('modalAct')
+}
+async function saveActivity(){
   const err=document.getElementById('actErr')
   const title=document.getElementById('aTitle').value.trim()
   err.textContent=''
   if(!title){err.textContent='Title is required.';return}
-  const{count}=await sb.from('activities').select('*',{count:'exact',head:true}).eq('day_id',currentDayId)
   const tags=document.getElementById('aTags').value.split(',').map(t=>t.trim()).filter(Boolean)
-  const{error}=await sb.from('activities').insert({
-    day_id:currentDayId,position:count||0,title,
+  const payload={
+    day_id:currentDayId,title,
     time:document.getElementById('aTime').value.trim()||null,
     subtitle:document.getElementById('aSub').value.trim()||null,
     location:document.getElementById('aLoc').value.trim()||null,
@@ -439,53 +667,33 @@ async function addActivity(){
     brief:document.getElementById('aBrief').value.trim()||null,
     icon:document.getElementById('aIcon').value,
     tags:tags.length?tags:null,
-  })
+  }
+  let error
+  if(editingActId){
+    ({error}=await sb.from('activities').update(payload).eq('id',editingActId))
+  } else {
+    const{count}=await sb.from('activities').select('*',{count:'exact',head:true}).eq('day_id',currentDayId)
+    ;({error}=await sb.from('activities').insert({...payload,position:count||0}))
+  }
   if(error){err.textContent=error.message;return}
-  closeModal('modalAct')
-  loadTrip(currentTripId)
+  closeModal('modalAct');loadTrip(currentTripId)
 }
 
-// ── DELETE ACTIVITY ──────────────────────────────
-async function deleteActivity(actId){
+// ── DELETE ───────────────────────────────────────────────
+async function deleteDay(id){
+  if(!confirm('Delete this day and all its activities?'))return
+  const{error}=await sb.from('itinerary_days').delete().eq('id',id)
+  if(error){alert('Error: '+error.message);return}
+  loadTrip(currentTripId)
+}
+async function deleteActivity(id){
   if(!confirm('Delete this activity?'))return
-  const{error}=await sb.from('activities').delete().eq('id',actId)
+  const{error}=await sb.from('activities').delete().eq('id',id)
   if(error){alert('Error: '+error.message);return}
   loadTrip(currentTripId)
 }
 
-// ── CREATE TRIP ──────────────────────────────────
-async function createTrip(){
-  const btn=document.getElementById('submitBtn'),err=document.getElementById('formErr')
-  const name=document.getElementById('fName').value.trim()
-  const dest=document.getElementById('fDest').value.trim()
-  const start=document.getElementById('fStart').value
-  const end=document.getElementById('fEnd').value
-  err.textContent=''
-  if(!name){err.textContent='Trip name is required.';return}
-  if(!dest){err.textContent='Destination is required.';return}
-  if(!start||!end){err.textContent='Start and end dates are required.';return}
-  if(new Date(end)<new Date(start)){err.textContent='End date must be after start date.';return}
-  btn.disabled=true;btn.textContent='Creating…'
-  const{data,error}=await sb.from('trips').insert({
-    name,destination:dest,
-    subtitle:document.getElementById('fSub').value.trim()||null,
-    start_date:start,end_date:end,
-    status:document.getElementById('fStatus').value,
-    budget_total:parseFloat(document.getElementById('fBudget').value)||null,
-    budget_currency:document.getElementById('fCurrency').value||'USD',
-    travelers:parseInt(document.getElementById('fTravelers').value)||1,
-    notes:document.getElementById('fNotes').value.trim()||null,
-    cover_url:document.getElementById('fCover').value.trim()||null,
-  }).select().single()
-  btn.disabled=false;btn.textContent='Create Trip'
-  if(error){err.textContent=error.message;return}
-  ;['fName','fSub','fDest','fStart','fEnd','fBudget','fNotes','fCover'].forEach(id=>document.getElementById(id).value='')
-  document.getElementById('fTravelers').value=1
-  document.getElementById('fStatus').value='draft'
-  document.getElementById('fCurrency').value='USD'
-  showDetail(data.id)
-}
-
+// Boot
 loadTrips()
 </script>
 </body>
